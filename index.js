@@ -2,8 +2,11 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 4000;
+const bodyParser = require('body-parser');
 
 const { getData } = require('./requests/get');
+
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => getData(req, res));
 
