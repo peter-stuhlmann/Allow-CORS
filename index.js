@@ -9,6 +9,7 @@ const { postData } = require('./requests/post');
 const { patchData } = require('./requests/patch');
 const { deleteData } = require('./requests/delete');
 const { putData } = require('./requests/put');
+const { notFound } = require('./errors/notFound');
 
 app.use(bodyParser.json());
 
@@ -17,5 +18,6 @@ app.post('/', (req, res) => postData(req, res));
 app.patch('/', (req, res) => patchData(req, res));
 app.delete('/', (req, res) => deleteData(req, res));
 app.put('/', (req, res) => putData(req, res));
+app.all('*', (req, res) => notFound(req, res));
 
 app.listen(port, () => console.log(`Proxy server listening on port ${port}`));
