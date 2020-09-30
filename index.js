@@ -6,10 +6,12 @@ const bodyParser = require('body-parser');
 
 const { getData } = require('./requests/get');
 const { postData } = require('./requests/post');
+const { patchData } = require('./requests/patch');
 
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => getData(req, res));
 app.post('/', (req, res) => postData(req, res));
+app.patch('/', (req, res) => patchData(req, res));
 
 app.listen(port, () => console.log(`Proxy server listening on port ${port}`));
