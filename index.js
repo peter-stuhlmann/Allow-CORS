@@ -17,7 +17,9 @@ app.use('/', (req, res, next) => {
   'url' in req.query ? urlValidation(req, res, next) : next();
 });
 
-app.get('/', (req, res) => getData(req, res));
+app.get('/', (req, res) =>
+  'url' in req.query ? getData(req, res) : res.send('Allow CORS')
+);
 app.post('/', (req, res) => postData(req, res));
 app.patch('/', (req, res) => patchData(req, res));
 app.delete('/', (req, res) => deleteData(req, res));
