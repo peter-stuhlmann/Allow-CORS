@@ -13,7 +13,8 @@
 
 You can use this live demo for test purposes in development mode. For a production version I recommend you to create your own proxy. Feel free to clone/fork this project and to use it for your own needs.
 
-Live Server: [https://allow-cors.com/](https://allow-cors.com/)
+Live Server: [https://allow-cors.com/](https://allow-cors.com/)  
+Sample request: [https://allow-cors.com/?url=http://example.com](https://allow-cors.com/?url=http://example.com)
 
 ---
 
