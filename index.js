@@ -13,7 +13,9 @@ const { urlValidation } = require('./errors/urlValidation');
 const { notFound } = require('./errors/notFound');
 
 app.use(bodyParser.json());
-app.use('/', (req, res, next) => urlValidation(req, res, next));
+app.use('/', (req, res, next) => {
+  'url' in req.query ? urlValidation(req, res, next) : next();
+});
 
 app.get('/', (req, res) => getData(req, res));
 app.post('/', (req, res) => postData(req, res));
